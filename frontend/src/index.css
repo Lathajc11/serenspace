@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 14% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 18%;
+    --primary: 216 100% 86%;
+    --primary-foreground: 220 14% 18%;
+    --secondary: 216 60% 95%;
+    --secondary-foreground: 220 14% 18%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 216 100% 86%;
+    --accent-foreground: 220 14% 18%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 216 100% 86%;
+    --radius: 1rem;
+    
+    --seren-bg: #F6F7F9;
+    --seren-bg-secondary: #EAF2FF;
+    --seren-accent: #B9D5FF;
+    --seren-text: #2A2D34;
+    --seren-text-secondary: #6B7280;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[var(--seren-bg)] text-[var(--seren-text)] antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .seren-card {
+    @apply bg-white rounded-2xl shadow-lg;
+    box-shadow: 0 4px 20px rgba(40, 50, 70, 0.06);
+  }
+  
+  .seren-button {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-200;
+    background: rgba(185, 213, 255, 0.3);
+    color: var(--seren-text);
+  }
+  
+  .seren-button:hover {
+    @apply -translate-y-0.5;
+    background: rgba(185, 213, 255, 0.5);
+  }
+  
+  .seren-button-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold transition-all duration-200;
+    background: var(--seren-accent);
+    color: var(--seren-text);
+  }
+  
+  .seren-button-primary:hover {
+    @apply -translate-y-0.5;
+    filter: brightness(1.05);
+  }
+  
+  .seren-input {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-[var(--seren-accent)] focus:outline-none transition-colors;
+  }
+  
+  .seren-label {
+    @apply block text-sm font-medium mb-2;
+    color: var(--seren-text-secondary);
+  }
+  
+  .emotion-btn {
+    @apply flex flex-col items-center justify-center p-4 rounded-2xl transition-all duration-200;
+    background: white;
+    border: 2px solid transparent;
+  }
+  
+  .emotion-btn:hover {
+    @apply scale-105;
+    border-color: var(--seren-accent);
+  }
+  
+  .emotion-btn.selected {
+    background: var(--seren-accent);
+    border-color: var(--seren-accent);
+  }
+  
+  .nav-link {
+    @apply text-sm font-medium transition-colors hover:text-[var(--seren-accent)];
+    color: var(--seren-text-secondary);
+  }
+  
+  .nav-link.active {
+    color: var(--seren-text);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(185, 213, 255, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(185, 213, 255, 0.8);
+}
+
+/* Animation for breathing exercises */
+@keyframes breathe-animation {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+.breathing-circle {
+  animation: breathe-animation 4s ease-in-out infinite;
+}
